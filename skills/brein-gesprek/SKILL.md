@@ -16,7 +16,7 @@ Mogelijke bronnen, in volgorde van voorkeur:
   - Haal de samenvatting met `plaud__get_note` en het transcript met `plaud__get_transcript` (standaard `transaction`, met sprekers en tijden; blader verder met `next_cursor` tot het einde).
   - Haal ook `block: "mark_memo"` op: momenten waarop de eigenaar tijdens het gesprek op de knop drukte zijn extra belangrijk.
 - **Transcript of notities** die de eigenaar plakt of bijvoegt.
-- **Mondelinge samenvatting** van de eigenaar in de chat. Dat is ook een volwaardige bron: `[Bron: de eigenaar, <datum>]`.
+- **Mondelinge samenvatting** van de eigenaar in de chat. Dat is ook een volwaardige bron: `[Bron: De eigenaar, <datum>]`.
 
 Is onduidelijk welk gesprek bedoeld is of op welke datum, vraag het dan in één korte vraag.
 

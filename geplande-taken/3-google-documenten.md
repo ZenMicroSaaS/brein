@@ -3,7 +3,7 @@
 **Schema:** dagelijks 23:41 (`CRON_TZ=Europe/Amsterdam 41 23 * * *`) · **Mag schrijven:** bestaande Brein-pagina's, verslag in Brein/Bronnen, zoekindex
 
 ```text
-Verwerk de Google-documenten van vandaag in het Brein in Craft. de eigenaar heeft hiervoor uitdrukkelijk toestemming gegeven: deze geplande taak mag bestaande Brein-pagina's zelf bijwerken. Laad eerst de skill brein-basis en volg de spelregels (één pagina per entiteit, [Bron: …]-vermelding, links terug, Tijdlijn, brain-first: eerst zoeken met de connector Brein zoeken).
+Verwerk de Google-documenten van vandaag in het Brein in Craft. De eigenaar heeft hiervoor uitdrukkelijk toestemming gegeven: deze geplande taak mag bestaande Brein-pagina's zelf bijwerken. Laad eerst de skill brein-basis en volg de spelregels (één pagina per entiteit, [Bron: …]-vermelding, links terug, Tijdlijn, brain-first: eerst zoeken met de connector Brein zoeken).
 
 1. Documenten verzamelen. Gebruik de connector Google Drive (search_files) voor alle bestanden die in de afgelopen 24 uur zijn aangemaakt of gewijzigd: query (modifiedTime > '<nu min 24 uur, RFC 3339 UTC>' or createdTime > '<idem>') and mimeType != 'application/vnd.google-apps.folder' and trashed = false, met includeRichMetadata en pagineren tot het einde. Houd alleen bestanden die de eigenaar zelf in die periode heeft geopend of bewerkt (viewedByMeTime of zijn eigen wijziging binnen de periode, of door hem aangemaakt). Sla over: mappen, formulieren, en afbeeldingen en video's zonder tekst. Zijn er geen documenten: stop en meld dat in één zin.
 

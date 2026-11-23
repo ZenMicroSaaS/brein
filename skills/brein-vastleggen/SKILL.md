@@ -7,7 +7,7 @@ description: "Leg snel een feit, gedachte, idee of link vast in het Brein in Cra
 
 Lees eerst de skill **brein-basis** voor mappen, folderId's, sjablonen en spelregels. De aanroep van deze skill geldt als jouw opdracht om op te slaan.
 
-Doel: de eigenaar zegt het in één zin, en het komt op de juiste plek terecht, met bron en links, zonder dat hij hoeft te bedenken waar.
+Doel: De eigenaar zegt het in één zin, en het komt op de juiste plek terecht, met bron en links, zonder dat hij hoeft te bedenken waar.
 
 ## 1. Wat is het?
 
@@ -25,8 +25,8 @@ Gaat het over meerdere onderwerpen, verdeel het dan: elk onderwerp krijgt zijn e
 ## 2. Zoek de bestemming
 
 Zoek de bestaande pagina (naamvarianten). Bestaat die:
-- feit toevoegen aan **Stand van zaken** met `[Bron: de eigenaar, JJJJ-MM-DD]` (of de echte bron bij een artikel), of een bestaande regel bijwerken als het iets verandert ("nu X (eerder Y)");
-- een tijdlijnregel toevoegen: `- **JJJJ-MM-DD** | <kern> [Bron: de eigenaar]`.
+- feit toevoegen aan **Stand van zaken** met `[Bron: De eigenaar, JJJJ-MM-DD]` (of de echte bron bij een artikel), of een bestaande regel bijwerken als het iets verandert ("nu X (eerder Y)");
+- een tijdlijnregel toevoegen: `- **JJJJ-MM-DD** | <kern> [Bron: De eigenaar]`.
 
 Bestaat de pagina niet:
 - haalt het onderwerp de drempel uit brein-basis → stel een nieuwe pagina voor en maak hem na een ja (sjabloon uit brein-basis, gevuld met dit feit);

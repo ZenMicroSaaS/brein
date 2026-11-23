@@ -36,7 +36,7 @@ Kort en scanbaar, in de chat:
 **Briefing — <dag> <datum>**
 
 **09:30 – Overleg met [Naam](craftdocs-link) (Organisatie)**
-Wie: één regel. Laatst: <datum> — kern. Open: de eigenaar → …; zij → …
+Wie: één regel. Laatst: <datum> — kern. Open: De eigenaar → …; zij → …
 Let op: wijziging of tegenstrijdigheid, indien relevant.
 
 **Mail die ertoe doet**

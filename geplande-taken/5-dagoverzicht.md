@@ -3,7 +3,7 @@
 **Schema:** dagelijks 08:23 (`CRON_TZ=Europe/Amsterdam 23 8 * * *`) · **Vereist:** een andere agent die om 08:00 een dagoverzicht uit mail en agenda in Craft zet · **Mag schrijven:** bestaande Brein-pagina's, een sectie onder het dagoverzicht, zoekindex
 
 ```text
-Verwerk het dagoverzicht van vandaag in het Brein in Craft. de eigenaar heeft hiervoor uitdrukkelijk toestemming gegeven: deze geplande taak mag bestaande Brein-pagina's zelf bijwerken. Laad eerst de skill brein-basis en volg de spelregels (één pagina per entiteit, [Bron: …]-vermelding, links terug, Tijdlijn, brain-first: eerst zoeken met de connector Brein zoeken). de eigenaar wil dat alles om 09:00 klaarstaat: werk vlot en zonder omwegen.
+Verwerk het dagoverzicht van vandaag in het Brein in Craft. De eigenaar heeft hiervoor uitdrukkelijk toestemming gegeven: deze geplande taak mag bestaande Brein-pagina's zelf bijwerken. Laad eerst de skill brein-basis en volg de spelregels (één pagina per entiteit, [Bron: …]-vermelding, links terug, Tijdlijn, brain-first: eerst zoeken met de connector Brein zoeken). De eigenaar wil dat alles om 09:00 klaarstaat: werk vlot en zonder omwegen.
 
 1. Bron. Een andere agent zet elke ochtend om 08:00 een pagina "JJJJ-MM-DD – Dagoverzicht" in Craft-map Brein/Bronnen/Dagoverzichten (folderId <ID_DAGOVERZICHTEN>). Zoek met documents list die van vandaag (Europe/Amsterdam); zijn er meerdere, neem de nieuwste. Ontbreekt die, stop dan en meld dat in één zin. Lees de volledige pagina (alle delen, volg --cursor tot het einde).
 

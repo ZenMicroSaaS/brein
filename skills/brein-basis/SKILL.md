@@ -7,7 +7,7 @@ description: "Spelregels voor het Brein in Craft (map \"Brein\"), naar GBrain-we
 
 # Brein-basis — spelregels voor het Brein in Craft
 
-de eigenaar houdt een persoonlijk kennisbrein bij in Craft, gebaseerd op de werkwijze van GBrain (Garry Tan), maar zonder de GBrain-software. Craft is de opslag en de bron van waarheid; Claude leest en schrijft via de Craft-connector (`craft_read` / `craft_write`). Een eigen zoekdienst op Cloudflare (connector "Brein zoeken") houdt een index bij voor zoeken op betekenis en voor de relaties. Deze skill bevat de regels die elke andere brein-skill volgt.
+De eigenaar houdt een persoonlijk kennisbrein bij in Craft, gebaseerd op de werkwijze van GBrain (Garry Tan), maar zonder de GBrain-software. Craft is de opslag en de bron van waarheid; Claude leest en schrijft via de Craft-connector (`craft_read` / `craft_write`). Een eigen zoekdienst op Cloudflare (connector "Brein zoeken") houdt een index bij voor zoeken op betekenis en voor de relaties. Deze skill bevat de regels die elke andere brein-skill volgt.
 
 Andere brein-skills: **brein-vraag** (zoeken en antwoorden), **brein-gesprek** (gesprekken verwerken), **brein-vastleggen** (snel iets vastleggen), **brein-persoon** (pagina's over mensen en organisaties), **brein-onderhoud** (controle), **brein-droom** (wekelijkse synthese), **brein-briefing** (dagbriefing en e-mail verwerken).
 
@@ -78,7 +78,7 @@ Losse feiten die geen eigen pagina rechtvaardigen, of die meerdere pagina's rake
 3. **Opslaan bij het onderwerp.** Het hoofdonderwerp bepaalt de map, niet de vorm of de bron. Een artikel over een persoon → Mensen. Bedrijfsinformatie uit een gesprek → óók de pagina van die organisatie bijwerken, niet alleen het gesprek.
 4. **Niet alles verdient een pagina.** Maak alleen een nieuwe pagina voor een persoon of organisatie waar de eigenaar waarschijnlijk opnieuw mee te maken krijgt, of een idee dat hij later wil terugvinden. Bij twijfel: niet aanmaken, wel noemen in de tekst. Vraag de eigenaar bij nieuwe pagina's om akkoord (in één lijst, niet per stuk).
 5. **Elk feit een bron.** Achter elk feit staat een bronvermelding:
-   - `[Bron: de eigenaar, 2026-11-21]` — wat de eigenaar zelf zegt (hoogste gezag)
+   - `[Bron: De eigenaar, 2026-11-21]` — wat de eigenaar zelf zegt (hoogste gezag)
    - `[Bron: gesprek <onderwerp>, 2026-11-21]` met link naar de gesprekspagina
    - `[Bron: <website/publicatie>, 2026-11-21]` — extern (laagste gezag)
    Spreken bronnen elkaar tegen, laat dan beide staan en benoem de tegenstrijdigheid. Overschrijf nooit wat de eigenaar zelf zei met een zwakkere bron.
@@ -192,7 +192,7 @@ Gebruik dit bij "indexeer mijn hele Brein", na de eerste installatie van de zoek
 
 ## Dagverwerking van Google-documenten
 
-Een geplande taak (elke dag 23:41) verwerkt de Google-documenten die de eigenaar die dag heeft aangemaakt of bewerkt. de eigenaar heeft daar uitdrukkelijk toestemming voor gegeven:
+Een geplande taak (elke dag 23:41) verwerkt de Google-documenten die de eigenaar die dag heeft aangemaakt of bewerkt. De eigenaar heeft daar uitdrukkelijk toestemming voor gegeven:
 
 - **Ruwe laag:** elk document gaat in de zoekindex met page_id `gdrive:<fileId>` (hoofdletters behouden) en map "Documenten". De documenten zelf worden nooit aangepast.
 - **Oordeel:** bestaande Brein-pagina's krijgen Tijdlijn-regels (`Document: [titel](link)`), nieuwe feiten met `[Bron: Google Doc <titel>, JJJJ-MM-DD]` en afspraken bij Open punten.

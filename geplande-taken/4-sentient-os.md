@@ -3,7 +3,7 @@
 **Schema:** dagelijks 05:41 (`CRON_TZ=Europe/Amsterdam 41 5 * * *`) · **Vereist:** de Mac aan, Claude-desktopapp open, map gekoppeld aan de taak · **Mag schrijven:** bestaande Brein-pagina's, verslag in Brein/Bronnen, zoekindex
 
 ```text
-Verwerk de nachtelijke updates van Sentient OS in het Brein in Craft. de eigenaar heeft hiervoor uitdrukkelijk toestemming gegeven: deze geplande taak mag bestaande Brein-pagina's zelf bijwerken. Laad eerst de skill brein-basis en volg de spelregels (één pagina per entiteit, [Bron: …]-vermelding, links terug, Tijdlijn, brain-first: eerst zoeken met de connector Brein zoeken).
+Verwerk de nachtelijke updates van Sentient OS in het Brein in Craft. De eigenaar heeft hiervoor uitdrukkelijk toestemming gegeven: deze geplande taak mag bestaande Brein-pagina's zelf bijwerken. Laad eerst de skill brein-basis en volg de spelregels (één pagina per entiteit, [Bron: …]-vermelding, links terug, Tijdlijn, brain-first: eerst zoeken met de connector Brein zoeken).
 
 1. Bron. Sentient OS (een agent op de Mac, draait om 03:00) houdt de map "~/Sentient OS - Knowledge Base" bij: markdownnotities in thema-mappen plus README.md (met de actuele stand). Gebruik de tools van de gekoppelde computer (device_list_dir met recursive, device_bash) om alle .md-bestanden te vinden die in de afgelopen 26 uur zijn gewijzigd (mtimeMs). Zijn er geen gewijzigde bestanden, of is de computer of map niet bereikbaar, stop dan en meld dat in één zin. Lees de gewijzigde bestanden volledig.
 

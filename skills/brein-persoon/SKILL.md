@@ -23,7 +23,7 @@ Pas de inspanning aan aan hoe belangrijk de persoon of organisatie voor de eigen
 
 - Bestaat er al een pagina (naamvarianten, achternaam, organisatie)? Dan is dit een **bijwerking**, geen nieuwe pagina.
 - Zoek in de rest van Craft (projectdocumenten, gespreksverslagen buiten het Brein) en in de backlinks (`internal-links get --to-document <id>`). Dit is de rijkste en goedkoopste bron.
-- Kijk in deze chat en in wat de eigenaar eerder over deze persoon vertelde: de eigenaar zelf is de bron met het hoogste gezag.
+- Kijk in deze chat en in wat de eigenaar eerder over deze persoon vertelde: De eigenaar zelf is de bron met het hoogste gezag.
 
 ## 3. Openbare bronnen (alleen niveau 1 en 2)
 
@@ -43,7 +43,7 @@ Voor niveau 1 en 2 personen mag je het sjabloon aanvullen met deze secties, mits
 - **Communicatie** — hoe hij/zij graag communiceert. Alleen wat de eigenaar zelf heeft gezien of wat de persoon over zichzelf zei, en label het: *(waargenomen)* of *(eigen woorden)*. Eén gesprek is geen patroon: noteer het dan in de tijdlijn, niet hier.
 - **Netwerk** — links naar andere Brein-pagina's van collega's, organisaties, gezamenlijke contacten
 
-Schrijf geen eigen oordelen over iemands karakter of kwaliteiten. Een inschatting komt alleen op de pagina als de eigenaar die zelf formuleert, met `[Bron: de eigenaar, datum]`.
+Schrijf geen eigen oordelen over iemands karakter of kwaliteiten. Een inschatting komt alleen op de pagina als de eigenaar die zelf formuleert, met `[Bron: De eigenaar, datum]`.
 
 **Bijwerken**:
 - Tijdlijn: nieuwe gedateerde regels onderaan toevoegen, nooit herschrijven.
