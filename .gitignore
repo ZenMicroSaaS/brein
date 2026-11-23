@@ -1,0 +1,4 @@
+node_modules/
+.mcp-secret
+.wrangler/
+.DS_Store

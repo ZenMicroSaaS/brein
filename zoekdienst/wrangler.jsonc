@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brein-zoek",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+  "ai": { "binding": "AI" },
+  "vectorize": [{ "binding": "VECTORS", "index_name": "brein-zoek" }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "brein-zoek",
+      "database_id": "VUL-IN-NA-AANMAKEN",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": { "CRAFT_SPACE_ID": "<SPACE_ID>" }
+}
