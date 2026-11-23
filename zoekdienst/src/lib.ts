@@ -71,13 +71,24 @@ export function chunkText(title: string, map: string, text: string, max = MAX_CH
 }
 
 const LINK_RE = /\[([^\]]+)\]\(block:\/\/([0-9A-Za-z-]+)\)/g;
+const WIKI_RE = /\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|([^\]]+))?\]\]/g;
 
-/** All block:// links in a text, de-duplicated by target id. */
+/** Page id for a page in a Markdown vault (Obsidian and the like): "md:" + file name without folder or ".md", lower case. */
+export function mdId(name: string): string {
+  const base = String(name || "").trim().split("/").pop()!.replace(/\.md$/i, "").trim();
+  return "md:" + base.toLowerCase();
+}
+
+/** All links in a text, de-duplicated by target id: Craft block:// links and [[wikilinks]] from a Markdown vault. */
 export function parseLinks(text: string): Link[] {
   const seen = new Map<string, Link>();
   for (const m of (text || "").matchAll(LINK_RE)) {
     const id = m[2].toLowerCase();
     if (!seen.has(id)) seen.set(id, { dstId: id, dstTitle: m[1] });
+  }
+  for (const m of (text || "").matchAll(WIKI_RE)) {
+    const id = mdId(m[1]);
+    if (!seen.has(id)) seen.set(id, { dstId: id, dstTitle: (m[2] || m[1].split("/").pop()!).trim() });
   }
   return [...seen.values()];
 }
@@ -102,10 +113,15 @@ export function parseRelations(text: string): Relation[] {
     let dstId: string | null = null;
     let dstTitle: string;
     const lm = rest.match(/^\[([^\]]+)\]\(block:\/\/([0-9A-Za-z-]+)\)\s*(.*)$/);
+    const wm = rest.match(/^\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|([^\]]+))?\]\]\s*(.*)$/);
     if (lm) {
       dstTitle = lm[1];
       dstId = lm[2].toLowerCase();
       rest = lm[3];
+    } else if (wm) {
+      dstTitle = (wm[2] || wm[1].split("/").pop()!).trim();
+      dstId = mdId(wm[1]);
+      rest = wm[3];
     } else {
       const pm = rest.match(/^([^(]+?)\s*(\(.*\))?$/);
       dstTitle = (pm ? pm[1] : rest).trim();
@@ -172,8 +188,12 @@ export function snippet(text: string, q: string, len = 280): string {
   return (start > 0 ? "…" : "") + s + (start + len < body.length ? "…" : "");
 }
 
-export function craftLink(spaceId: string, pageId: string): string {
+export function craftLink(spaceId: string, pageId: string, vault?: string): string {
   if (pageId.startsWith("gdrive:")) return `https://drive.google.com/open?id=${pageId.slice(7)}`;
+  if (pageId.startsWith("md:")) {
+    const file = pageId.slice(3);
+    return vault ? `obsidian://open?vault=${encodeURIComponent(vault)}&file=${encodeURIComponent(file)}` : file;
+  }
   return `craftdocs://open?spaceId=${spaceId}&blockId=${pageId}`;
 }
 

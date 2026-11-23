@@ -174,3 +174,23 @@ _t("Google Drive-ids: hoofdletters blijven, link naar Drive", () => {
   _assert.equal(_cl("space", "gdrive:1wRE8"), "https://drive.google.com/open?id=1wRE8");
   _assert.equal(_cl("space", "abc"), "craftdocs://open?spaceId=space&blockId=abc");
 });
+
+test("Markdown-map (Obsidian): wikilinks, relaties en links naar de kluis", async () => {
+  const { parseLinks, parseRelations, craftLink, mdId } = await import("../src/lib");
+  const text = `**In één zin:** klant van [[Nova Health]].
+
+## Relaties
+
+- klant van → [[Organisaties/Nova Health|Nova]] (sinds 2025)
+- werkt met → [[Sanne de Vries]]
+
+Zie ook [[Sanne de Vries#Tijdlijn]].`;
+  const links = parseLinks(text);
+  assert.deepEqual(links.map((l) => l.dstId).sort(), ["md:nova health", "md:sanne de vries"]);
+  const rels = parseRelations(text);
+  assert.deepEqual(rels[0], { type: "klant van", dstId: "md:nova health", dstTitle: "Nova", note: "sinds 2025" });
+  assert.equal(rels[1].dstId, "md:sanne de vries");
+  assert.equal(mdId("Mensen/Jan Jansen.md"), "md:jan jansen");
+  assert.equal(craftLink("s", "md:jan jansen", "Brein"), "obsidian://open?vault=Brein&file=jan%20jansen");
+  assert.equal(craftLink("s", "md:jan jansen"), "jan jansen");
+});

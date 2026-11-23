@@ -21,6 +21,7 @@ export interface Env {
   VECTORS: VectorizeIndex;
   DB: D1Database;
   MCP_SECRET: string;
+  MD_VAULT?: string;
   CRAFT_SPACE_ID: string;
 }
 
@@ -85,7 +86,7 @@ const TOOLS = [
   {
     name: "indexeer_pagina",
     description:
-      "Voeg een Brein-pagina toe aan de zoekindex of werk hem bij (vervangt de vorige versie). Geef de volledige tekst als markdown, inclusief block://-links en de sectie 'Relaties'.",
+      "Voeg een Brein-pagina toe aan de zoekindex of werk hem bij (vervangt de vorige versie). Geef de volledige tekst als markdown, inclusief links (Craft: block://-links; Markdown-map zoals Obsidian: [[wikilinks]] en page_id \"md:<bestandsnaam>\") en de sectie 'Relaties'.",
     inputSchema: {
       type: "object",
       properties: {
@@ -261,7 +262,7 @@ export async function zoek(env: Env, a: Args) {
       titel: page.title,
       map: page.map,
       page_id: pageId,
-      link: craftLink(env.CRAFT_SPACE_ID, pageId),
+      link: craftLink(env.CRAFT_SPACE_ID, pageId, env.MD_VAULT),
       score: Number(score.toFixed(4)),
       fragment: chunk ? snippet(chunk.text, vraag) : "",
       gewijzigd: page.gewijzigd,
@@ -304,7 +305,7 @@ export async function relaties(env: Env, a: Args) {
     .all();
   const linktNaar = await env.DB.prepare("SELECT dst_id AS page_id, dst_title AS title FROM links WHERE src_id = ?").bind(id).all();
   return {
-    pagina: { ...page, link: craftLink(env.CRAFT_SPACE_ID, id) },
+    pagina: { ...page, link: craftLink(env.CRAFT_SPACE_ID, id, env.MD_VAULT) },
     relaties_uitgaand: uit.results,
     relaties_inkomend: inn.results,
     genoemd_in: genoemdIn.results,
@@ -331,7 +332,7 @@ export async function vergelijkbaar(env: Env, a: Args) {
       titel: v.title,
       map: v.map,
       page_id: pid,
-      link: craftLink(env.CRAFT_SPACE_ID, pid),
+      link: craftLink(env.CRAFT_SPACE_ID, pid, env.MD_VAULT),
       score: Number(v.score.toFixed(4)),
     })),
   };
@@ -367,7 +368,7 @@ export async function handleRpc(env: Env, req: RpcRequest): Promise<object | nul
         capabilities: { tools: { listChanged: false } },
         serverInfo: SERVER_INFO,
         instructions:
-          "Zoekdienst voor het Brein in Craft. Gebruik 'zoek' voor vragen, 'relaties' voor verbanden, en 'indexeer_pagina' na elke wijziging aan een Brein-pagina.",
+          "Zoekdienst voor het Brein (Craft of een Markdown-map zoals Obsidian). Gebruik 'zoek' voor vragen, 'relaties' voor verbanden, en 'indexeer_pagina' na elke wijziging aan een Brein-pagina.",
       });
     }
     case "ping":

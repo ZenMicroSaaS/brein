@@ -2,6 +2,8 @@
 name: "brein-basis"
 description: "Spelregels voor het Brein in Craft (map \"Brein\"), naar GBrain-werkwijze. Lees vóór elke lees- of schrijfactie in het Brein, of als de eigenaar iets wil opslaan, opzoeken of bijwerken."
 ---
+> Werk je met Obsidian of een andere Markdown-map in plaats van Craft? Volg dan `docs/obsidian.md` voor de vertaling van de Craft-opdrachten, links (`[[Naam]]`) en page_id's (`md:<bestandsnaam>`).
+
 
 # Brein-basis — spelregels voor het Brein in Craft
 

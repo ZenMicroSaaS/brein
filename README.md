@@ -1,6 +1,6 @@
 # Brein-kit
 
-Een persoonlijk kennissysteem dat zichzelf bijhoudt: één pagina per persoon, organisatie, gesprek of idee in **Craft**, elke nacht bijgewerkt door **Claude** uit je documenten, mail en berichten, en doorzoekbaar via een eigen zoekdienst op **Cloudflare**.
+Een persoonlijk kennissysteem dat zichzelf bijhoudt: één pagina per persoon, organisatie, gesprek of idee in **Craft** of een **Markdown-map zoals Obsidian**, elke nacht bijgewerkt door een AI-assistent (**Claude**, of **ChatGPT** via dezelfde zoekconnector) uit je documenten, mail en berichten, en doorzoekbaar via een eigen zoekdienst op **Cloudflare**.
 
 Losjes gebaseerd op het GBrain-concept van Garry Tan, en uitgebreid met eigen inzichten uit de praktijk.
 
@@ -14,6 +14,8 @@ Losjes gebaseerd op het GBrain-concept van Garry Tan, en uitgebreid met eigen in
 | [`zoekdienst/`](zoekdienst) | De Cloudflare-worker `brein-zoek`: hybride zoeken, relatiegraaf, MCP-connector voor Claude. |
 | [`geplande-taken/`](geplande-taken) | De prompts van de zeven geplande taken die het Brein dagelijks en wekelijks bijhouden. |
 | [`docs/schema.md`](docs/schema.md) | Schema's van de architectuur en het dagritme. |
+| [`docs/obsidian.md`](docs/obsidian.md) | Obsidian of een andere Markdown-map gebruiken in plaats van Craft. |
+| [`docs/chatgpt.md`](docs/chatgpt.md) | ChatGPT gebruiken naast of in plaats van Claude. |
 
 ## Hoe het werkt
 
@@ -25,8 +27,8 @@ flowchart TB
     S[Sentient OS op je Mac]
     E[Jij: chat, Plaud-opnames, notities]
   end
-  V[Claude-agents met de brein-skills]
-  C[(Craft: map Brein)]
+  V[AI-agents met de brein-skills: Claude of ChatGPT]
+  C[(Craft of Obsidian / Markdown-map)]
   Z[(Brein zoeken op Cloudflare)]
   D --> V
   O --> V
@@ -39,20 +41,20 @@ flowchart TB
 ```
 
 1. **Bronnen.** Wat je al doet wordt de grondstof.
-2. **Verwerking.** Claude volgt vaste skills: eerst zoeken, dan een bestaande pagina bijwerken, altijd met bron. Nieuwe pagina's alleen na jouw akkoord.
-3. **Opslag.** Craft is de waarheid. De zoekindex is een afgeleide die na elke wijziging wordt bijgewerkt.
-4. **Gebruik.** Vraag het in elke chat; Claude zoekt eerst in je Brein en antwoordt met links.
+2. **Verwerking.** De assistent volgt vaste skills: eerst zoeken, dan een bestaande pagina bijwerken, altijd met bron. Nieuwe pagina's alleen na jouw akkoord.
+3. **Opslag.** Craft (of je Markdown-map) is de waarheid. De zoekindex is een afgeleide die na elke wijziging wordt bijgewerkt.
+4. **Gebruik.** Vraag het in elke chat; de assistent zoekt eerst in je Brein en antwoordt met links.
 
 ## Wat je nodig hebt
 
-- **Claude** (Pro of hoger) met ondersteuning voor skills, connectoren en geplande taken.
-- **Craft** met de Craft-connector in Claude.
+- **Een AI-assistent met MCP-connectoren.** Getest met **Claude** (Pro of hoger: skills, connectoren, geplande taken). **ChatGPT** kan via een aangepaste connector dezelfde zoekdienst gebruiken; zie [docs/chatgpt.md](docs/chatgpt.md).
+- **Opslag.** Getest met **Craft** (met de Craft-connector). Ook mogelijk: **Obsidian** of een andere Markdown-lezer (Logseq, iA Writer, VS Code) met een map `.md`-bestanden; zie [docs/obsidian.md](docs/obsidian.md).
 - **Cloudflare**-account (gratis volstaat om te beginnen): Workers, Workers AI, Vectorize en D1.
 - Optioneel: **Google Drive / Gmail / Google Agenda**-connectoren, **Plaud** voor gespreksopnames en **[Sentient OS](https://github.com/Sentient-OS-Labs/sentient-os)** op een Mac voor berichten en notities.
 
 ## Installeren
 
-1. **Craft-mappen.** Maak in Craft een map `Brein` met de submappen `Mensen`, `Organisaties`, `Gesprekken`, `Ideeën & Concepten`, `Bronnen` (met daarin `Dagoverzichten`), `Reflecties` en `Werkwijze`, plus een document `Feiten` met een collectie. Noteer van elke map het ID (via de Craft-connector: `folders list`) en je space-ID.
+1. **Mappen.** (Obsidian of Markdown: volg [docs/obsidian.md](docs/obsidian.md).) Maak in Craft een map `Brein` met de submappen `Mensen`, `Organisaties`, `Gesprekken`, `Ideeën & Concepten`, `Bronnen` (met daarin `Dagoverzichten`), `Reflecties` en `Werkwijze`, plus een document `Feiten` met een collectie. Noteer van elke map het ID (via de Craft-connector: `folders list`) en je space-ID.
 2. **Skills invullen.** Vervang in `skills/*/SKILL.md` de plaatshouders (`<SPACE_ID>`, `<ID_MENSEN>`, `<ID_ORGANISATIES>`, …) door jouw ID's. Zie de tabel in `skills/brein-basis/SKILL.md`.
 3. **Skills toevoegen.** Voeg de acht skills toe aan je Claude-account via de skills-instellingen van Claude. Zet een kopie in Craft (Brein/Werkwijze) als je ook andere agents dezelfde werkwijze wilt laten volgen.
 4. **Zoekdienst uitrollen.** Volg [`zoekdienst/README.md`](zoekdienst/README.md). Kort: `cd zoekdienst && npm install && ./setup.sh`. Het script maakt de database en index aan, zet een geheime sleutel en toont de connector-URL.
@@ -98,4 +100,4 @@ De vijf spelregels die alles betrouwbaar houden:
 
 Licentie: MIT, zie [LICENSE](LICENSE).
 
-Craft, Claude, Cloudflare, Google, Sentient OS en Plaud zijn merken van hun eigenaars. Dit project is daar niet aan verbonden.
+Craft, Obsidian, Claude, ChatGPT, Cloudflare, Google, Sentient OS en Plaud zijn merken van hun eigenaars. Dit project is daar niet aan verbonden.

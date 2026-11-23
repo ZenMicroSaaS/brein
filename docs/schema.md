@@ -11,10 +11,10 @@ flowchart TB
     E["Jij<br/>chat, Plaud, notities"]
   end
   subgraph Verwerking
-    V["Claude-agents + brein-skills<br/>zoek eerst · werk bij · bron · links terug · indexeer"]
+    V["Claude of ChatGPT + brein-skills<br/>zoek eerst · werk bij · bron · links terug · indexeer"]
   end
   subgraph Opslag
-    C[("Craft: map Brein<br/>Mensen · Organisaties · Gesprekken<br/>Ideeën & Concepten · Bronnen · Reflecties<br/>Werkwijze · Feiten")]
+    C[("Craft of Obsidian / Markdown-map<br/>Mensen · Organisaties · Gesprekken<br/>Ideeën & Concepten · Bronnen · Reflecties<br/>Werkwijze · Feiten")]
     Z[("Brein zoeken<br/>Cloudflare Worker + Vectorize + D1<br/>zoek · relaties · vergelijkbaar")]
   end
   subgraph Gebruik
